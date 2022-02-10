@@ -12,13 +12,6 @@ function createDogListItem(dog){
       noDog.remove()
       })
   
-    // (1) // DONE
-    //TODO: Here, add a click event listener
-    //on to the li element. Inside that listener,
-    //call the createDogCard method and pass
-    //the dog variable as a parameter. You will
-    //also need to remove any existing dog card
-    //from the dogContainer
       return li
   };
   
@@ -38,11 +31,6 @@ function createDogListItem(dog){
     const text = document.createElement('p')
     text.innerText = bio
 
-  
-    //(2) // DONE
-    //TODO: Update this section to create new elements
-    //for the bio header and the bio text. Add those
-    //elements to the div.
     div.append(header, text);
   
     return div;
@@ -70,11 +58,17 @@ function createDogListItem(dog){
       button.innerText = 'Bad Dog'
     }
     else {button.innerText = 'Good Dog'}
-  
-    // (6)
-    //TODO: If the isGoodDog flag is true, set
-    //the button text to "Bad Dog". If false,
-    //set it to "Good Dog"
+
+    button.addEventListener('click', function() {
+      if (button.innerText === 'Bad Dog'){
+        button.innerText = 'Good Dog'
+        text.innerText = 'Is naughty? No!'
+      }
+      else if (button.innerText === 'Good Dog'){
+        button.innerText = 'Bad Dog'
+        text.innerText = 'Is naughty? Yes!'
+      }
+    })
   
     div.append(text, button);
     return div;
@@ -85,10 +79,6 @@ function createDogListItem(dog){
     const header = document.createElement("h2");
     header.innerText = dog.name;
   
-    // (3) DONE
-    //TODO: Update this section to create a new image
-    //element and add it to the dog card. Set the source of 
-    //the image to the image path on the dog object
     
     const desc = createDogCardDesc(dog.bio);
     const bottomSection = createDogCardBottomSection(dog);
@@ -146,12 +136,6 @@ function createDogListItem(dog){
         //add the result of the method to the toplist *AFTER THE ADD BUTTON*
         addButton.after(result)
     })
-  
-    //(5)
-    //TODO: Add an event listener on to the form to capture the
-    //submit event. In the submit event, add a item to the
-    //list of dogs at the top of the page, and add a new object
-    //in to the dogs array with the data captured from the form. //DONE
   
     form.append(
       nameLabel,
@@ -224,10 +208,4 @@ function createDogListItem(dog){
       main.remove()
   })
   
-  // (4)
-  //TODO: Add an event listener on to form button so that
-  //when the user clicks the button, the form is displayed.
-  //the renderMainForm method will return an element that
-  //contains the form, so you only need to add it to the 
-  //dogContainer and remove any existing children. //DONE
   
